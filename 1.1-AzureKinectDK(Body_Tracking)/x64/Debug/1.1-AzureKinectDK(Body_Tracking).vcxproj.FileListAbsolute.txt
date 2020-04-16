@@ -1,0 +1,15 @@
+C:\Users\Danai\Desktop\Azure Kinect DK\1.1-AzureKinectDK(Body_Tracking)\x64\Debug\1.1-AzureKinectDK(Body_Tracking).vcxproj.CopyComplete
+C:\Users\Danai\Desktop\Azure Kinect DK\1.1-AzureKinectDK(Body_Tracking)\x64\Debug\dnn_model_2_0.onnx
+C:\Users\Danai\Desktop\Azure Kinect DK\1.1-AzureKinectDK(Body_Tracking)\x64\Debug\1.1-AzureKinectDK(Body_Tracking).exe
+C:\Users\Danai\Desktop\Azure Kinect DK\1.1-AzureKinectDK(Body_Tracking)\x64\Debug\1.1-AzureKinectDK(Body_Tracking).pdb
+C:\Users\Danai\Desktop\Azure Kinect DK\1.1-AzureKinectDK(Body_Tracking)\x64\Debug\depthengine_2_0.dll
+C:\Users\Danai\Desktop\Azure Kinect DK\1.1-AzureKinectDK(Body_Tracking)\x64\Debug\k4a.dll
+C:\Users\Danai\Desktop\Azure Kinect DK\1.1-AzureKinectDK(Body_Tracking)\x64\Debug\k4arecord.dll
+C:\Users\Danai\Desktop\Azure Kinect DK\1.1-AzureKinectDK(Body_Tracking)\x64\Debug\k4a.pdb
+C:\Users\Danai\Desktop\Azure Kinect DK\1.1-AzureKinectDK(Body_Tracking)\x64\Debug\k4arecord.pdb
+C:\Users\Danai\Desktop\Azure Kinect DK\1.1-AzureKinectDK(Body_Tracking)\x64\Debug\cublas64_100.dll
+C:\Users\Danai\Desktop\Azure Kinect DK\1.1-AzureKinectDK(Body_Tracking)\x64\Debug\cudart64_100.dll
+C:\Users\Danai\Desktop\Azure Kinect DK\1.1-AzureKinectDK(Body_Tracking)\x64\Debug\vcomp140.dll
+C:\Users\Danai\Desktop\Azure Kinect DK\1.1-AzureKinectDK(Body_Tracking)\x64\Debug\cudnn64_7.dll
+C:\Users\Danai\Desktop\Azure Kinect DK\1.1-AzureKinectDK(Body_Tracking)\x64\Debug\k4abt.dll
+C:\Users\Danai\Desktop\Azure Kinect DK\1.1-AzureKinectDK(Body_Tracking)\x64\Debug\onnxruntime.dll

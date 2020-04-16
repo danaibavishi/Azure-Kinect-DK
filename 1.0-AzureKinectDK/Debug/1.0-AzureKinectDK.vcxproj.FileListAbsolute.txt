@@ -1,0 +1,9 @@
+C:\Users\Danai\Desktop\Azure Kinect DK\1.0-AzureKinectDK\Debug\1.0-AzureKinectDK.vcxproj.CopyComplete
+C:\Users\Danai\Desktop\Azure Kinect DK\1.0-AzureKinectDK\Debug\dnn_model_2_0.onnx
+C:\Users\Danai\Desktop\Azure Kinect DK\1.0-AzureKinectDK\Debug\1.0-AzureKinectDK.exe
+C:\Users\Danai\Desktop\Azure Kinect DK\1.0-AzureKinectDK\Debug\1.0-AzureKinectDK.pdb
+C:\Users\Danai\Desktop\Azure Kinect DK\1.0-AzureKinectDK\Debug\depthengine_2_0.dll
+C:\Users\Danai\Desktop\Azure Kinect DK\1.0-AzureKinectDK\Debug\k4a.dll
+C:\Users\Danai\Desktop\Azure Kinect DK\1.0-AzureKinectDK\Debug\k4arecord.dll
+C:\Users\Danai\Desktop\Azure Kinect DK\1.0-AzureKinectDK\Debug\k4a.pdb
+C:\Users\Danai\Desktop\Azure Kinect DK\1.0-AzureKinectDK\Debug\k4arecord.pdb
