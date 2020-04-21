@@ -6,6 +6,7 @@
 
 #include <osc\OscOutboundPacketStream.h>
 #include <ip\UdpSocket.h>
+#include "windows.h"
 
 #define VERIFY(result, error)                                                                            \
     if(result != K4A_RESULT_SUCCEEDED)                                                                   \
@@ -16,10 +17,12 @@
 
 #define ADDRESS "127.0.0.1"
 #define PORT 6448
-#define OUTPUT_BUFFER_SIZE 2048
+#define OUTPUT_BUFFER_SIZE 1024
 
-int main()
+int main(int argc, char* argv[])
 {
+    (void) argc;
+    (void) argv;
     k4a_device_t device = NULL;
     VERIFY(k4a_device_open(0, &device), "Open K4A Device failed!");
 
@@ -39,12 +42,12 @@ int main()
 
     int frame_count = 0;
 
-    UdpTransmitSocket transmitSocket(IpEndpointName(ADDRESS, PORT));
-    char buffer[OUTPUT_BUFFER_SIZE];
-    osc::OutboundPacketStream p(buffer, OUTPUT_BUFFER_SIZE);
-
     do
     {
+        UdpTransmitSocket transmitSocket(IpEndpointName(ADDRESS, PORT));
+        char buffer[OUTPUT_BUFFER_SIZE];
+        osc::OutboundPacketStream p(buffer, OUTPUT_BUFFER_SIZE);
+
         k4a_capture_t sensor_capture;
         k4a_wait_result_t get_capture_result = k4a_device_get_capture(device, &sensor_capture, K4A_WAIT_INFINITE);
         if (get_capture_result == K4A_WAIT_RESULT_SUCCEEDED)
@@ -68,8 +71,6 @@ int main()
             k4a_wait_result_t pop_frame_result = k4abt_tracker_pop_result(tracker, &body_frame, K4A_WAIT_INFINITE);
             if (pop_frame_result == K4A_WAIT_RESULT_SUCCEEDED)
             {
-                // Successfully popped the body tracking result. Start your processing
-
                 size_t num_bodies = k4abt_frame_get_num_bodies(body_frame);
                 printf("%zu bodies are detected!\n", num_bodies);
                 /*
@@ -122,12 +123,10 @@ int main()
 
                 printf("[%u]Left Wrist X Coordinate = %f\n", i, lwristx);
                 printf("[%u]Left Wrist Y Coordinate = %f\n", i, lwristy);
-
+                
                 p << osc::BeginBundleImmediate
                     << osc::BeginMessage("/wek/inputs")
                     << rwristx << rwristy << lwristx << lwristy << osc::EndMessage
-                    //<< osc::BeginMessage("/wek/inputs")
-                    //<< (double)0.23 << osc::EndMessage
                     << osc::EndBundle;
 
                 transmitSocket.Send(p.Data(), p.Size());

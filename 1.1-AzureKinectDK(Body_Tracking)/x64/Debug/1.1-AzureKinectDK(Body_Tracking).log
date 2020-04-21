@@ -1,1 +1,12 @@
-﻿  1.1-AzureKinectDK(Body_Tracking).vcxproj -> C:\Users\Danai\Desktop\Azure Kinect DK\1.1-AzureKinectDK(Body_Tracking)\x64\Debug\1.1-AzureKinectDK(Body_Tracking).exe
+﻿  1.1-AzureKinectDK(Body_Tracking).cpp
+C:\Users\Danai\Desktop\Azure Kinect DK\1.1-AzureKinectDK(Body_Tracking)\1.1-AzureKinectDK(Body_Tracking).cpp(115,71): warning C4267: 'argument': conversion from 'size_t' to 'uint32_t', possible loss of data
+C:\Users\Danai\Desktop\Azure Kinect DK\1.1-AzureKinectDK(Body_Tracking)\1.1-AzureKinectDK(Body_Tracking).cpp(116,68): warning C4267: 'argument': conversion from 'size_t' to 'uint32_t', possible loss of data
+C:\Users\Danai\Desktop\Azure Kinect DK\1.1-AzureKinectDK(Body_Tracking)\1.1-AzureKinectDK(Body_Tracking).cpp(124,24): warning C4477: 'printf' : format string '%u' requires an argument of type 'unsigned int', but variadic argument 1 has type 'size_t'
+C:\Users\Danai\Desktop\Azure Kinect DK\1.1-AzureKinectDK(Body_Tracking)\1.1-AzureKinectDK(Body_Tracking).cpp(124,24): message : consider using '%zu' in the format string
+C:\Users\Danai\Desktop\Azure Kinect DK\1.1-AzureKinectDK(Body_Tracking)\1.1-AzureKinectDK(Body_Tracking).cpp(125,24): warning C4477: 'printf' : format string '%u' requires an argument of type 'unsigned int', but variadic argument 1 has type 'size_t'
+C:\Users\Danai\Desktop\Azure Kinect DK\1.1-AzureKinectDK(Body_Tracking)\1.1-AzureKinectDK(Body_Tracking).cpp(125,24): message : consider using '%zu' in the format string
+C:\Users\Danai\Desktop\Azure Kinect DK\1.1-AzureKinectDK(Body_Tracking)\1.1-AzureKinectDK(Body_Tracking).cpp(127,24): warning C4477: 'printf' : format string '%u' requires an argument of type 'unsigned int', but variadic argument 1 has type 'size_t'
+C:\Users\Danai\Desktop\Azure Kinect DK\1.1-AzureKinectDK(Body_Tracking)\1.1-AzureKinectDK(Body_Tracking).cpp(127,24): message : consider using '%zu' in the format string
+C:\Users\Danai\Desktop\Azure Kinect DK\1.1-AzureKinectDK(Body_Tracking)\1.1-AzureKinectDK(Body_Tracking).cpp(128,24): warning C4477: 'printf' : format string '%u' requires an argument of type 'unsigned int', but variadic argument 1 has type 'size_t'
+C:\Users\Danai\Desktop\Azure Kinect DK\1.1-AzureKinectDK(Body_Tracking)\1.1-AzureKinectDK(Body_Tracking).cpp(128,24): message : consider using '%zu' in the format string
+  1.1-AzureKinectDK(Body_Tracking).vcxproj -> C:\Users\Danai\Desktop\Azure Kinect DK\1.1-AzureKinectDK(Body_Tracking)\x64\Debug\1.1-AzureKinectDK(Body_Tracking).exe
