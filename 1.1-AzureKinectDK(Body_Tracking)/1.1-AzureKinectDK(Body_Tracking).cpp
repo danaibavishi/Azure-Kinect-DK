@@ -42,7 +42,7 @@ int main(int argc, char* argv[])
 
     int frame_count = 0;
 
-    do
+    while (true)
     {
         UdpTransmitSocket transmitSocket(IpEndpointName(ADDRESS, PORT));
         char buffer[OUTPUT_BUFFER_SIZE];
@@ -157,7 +157,7 @@ int main(int argc, char* argv[])
             break;
         }
 
-    } while (frame_count < 1500);
+    }
 
     printf("Finished body tracking processing!\n");
 
