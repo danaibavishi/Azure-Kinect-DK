@@ -16,7 +16,7 @@
 
 #define ADDRESS "127.0.0.1"
 #define PORT 6448
-#define OUTPUT_BUFFER_SIZE 1024
+#define OUTPUT_BUFFER_SIZE 2048
 
 int main()
 {
@@ -72,16 +72,17 @@ int main()
 
                 size_t num_bodies = k4abt_frame_get_num_bodies(body_frame);
                 printf("%zu bodies are detected!\n", num_bodies);
+                /*
                 for (size_t i = 0; i < num_bodies; i++)
                 {
                     k4abt_skeleton_t skeleton;
                     k4abt_frame_get_body_skeleton(body_frame, i, &skeleton);
                     uint32_t id = k4abt_frame_get_body_id(body_frame, i);
                     
-                    /*for (int j = 0; j < 2; j++)
-                    {
-                        printf("Wrist Position = %f\n", skeleton.joints[K4ABT_JOINT_WRIST_RIGHT].position.xyz.x);
-                    }*/
+                    //for (int j = 0; j < 2; j++)
+                    //{
+                    //    printf("Wrist Position = %f\n", skeleton.joints[K4ABT_JOINT_WRIST_RIGHT].position.xyz.x);
+                    //}
                     
                     float rwristx = skeleton.joints[K4ABT_JOINT_WRIST_RIGHT].position.xyz.x;
                     float rwristy = skeleton.joints[K4ABT_JOINT_WRIST_RIGHT].position.xyz.y;
@@ -104,6 +105,32 @@ int main()
                     transmitSocket.Send(p.Data(), p.Size());
 
                 }
+                */
+                size_t i = 0;
+                k4abt_skeleton_t skeleton;
+                k4abt_frame_get_body_skeleton(body_frame, i, &skeleton);
+                uint32_t id = k4abt_frame_get_body_id(body_frame, i);
+
+                float rwristx = skeleton.joints[K4ABT_JOINT_WRIST_RIGHT].position.xyz.x;
+                float rwristy = skeleton.joints[K4ABT_JOINT_WRIST_RIGHT].position.xyz.y;
+
+                float lwristx = skeleton.joints[K4ABT_JOINT_WRIST_LEFT].position.xyz.x;
+                float lwristy = skeleton.joints[K4ABT_JOINT_WRIST_LEFT].position.xyz.y;
+
+                printf("[%u]Right Wrist X Coordinate = %f\n", i, rwristx);
+                printf("[%u]Right Wrist Y Coordinate = %f\n", i, rwristy);
+
+                printf("[%u]Left Wrist X Coordinate = %f\n", i, lwristx);
+                printf("[%u]Left Wrist Y Coordinate = %f\n", i, lwristy);
+
+                p << osc::BeginBundleImmediate
+                    << osc::BeginMessage("/wek/inputs")
+                    << rwristx << rwristy << lwristx << lwristy << osc::EndMessage
+                    //<< osc::BeginMessage("/wek/inputs")
+                    //<< (double)0.23 << osc::EndMessage
+                    << osc::EndBundle;
+
+                transmitSocket.Send(p.Data(), p.Size());
 
                 k4abt_frame_release(body_frame); // Remember to release the body frame once you finish using it
             }
@@ -131,7 +158,7 @@ int main()
             break;
         }
 
-    } while (frame_count < 500);
+    } while (frame_count < 1500);
 
     printf("Finished body tracking processing!\n");
 
