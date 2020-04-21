@@ -4,12 +4,19 @@
 #include <k4a/k4a.h>
 #include <k4abt.h>
 
+#include <osc\OscOutboundPacketStream.h>
+#include <ip\UdpSocket.h>
+
 #define VERIFY(result, error)                                                                            \
     if(result != K4A_RESULT_SUCCEEDED)                                                                   \
     {                                                                                                    \
         printf("%s \n - (File: %s, Function: %s, Line: %d)\n", error, __FILE__, __FUNCTION__, __LINE__); \
         exit(1);                                                                                         \
-    }                                                                                                    \
+    }              
+
+#define ADDRESS "127.0.0.1"
+#define PORT 6448
+#define OUTPUT_BUFFER_SIZE 1024
 
 int main()
 {
@@ -31,6 +38,11 @@ int main()
     VERIFY(k4abt_tracker_create(&sensor_calibration, tracker_config, &tracker), "Body tracker initialization failed!");
 
     int frame_count = 0;
+
+    UdpTransmitSocket transmitSocket(IpEndpointName(ADDRESS, PORT));
+    char buffer[OUTPUT_BUFFER_SIZE];
+    osc::OutboundPacketStream p(buffer, OUTPUT_BUFFER_SIZE);
+
     do
     {
         k4a_capture_t sensor_capture;
@@ -83,6 +95,13 @@ int main()
                     printf("[%u]Left Wrist X Coordinate = %f\n",i, lwristx);
                     printf("[%u]Left Wrist Y Coordinate = %f\n",i, lwristy);
 
+                    p << osc::BeginBundleImmediate
+                        << osc::BeginMessage("/wek/inputs")
+                        << rwristx << rwristy << lwristx << lwristy << osc::EndMessage
+                        //<< osc::BeginMessage("/wek/inputs")
+                        //<< (double)0.23 << osc::EndMessage
+                        << osc::EndBundle;
+                    transmitSocket.Send(p.Data(), p.Size());
 
                 }
 

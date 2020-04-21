@@ -5,13 +5,30 @@
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;c++;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="1.1-AzureKinectDK(Body_Tracking).cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="oscpack_1_1_0\oscpack_1_1_0\ip\IpEndpointName.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="oscpack_1_1_0\oscpack_1_1_0\ip\win32\NetworkingUtils.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="oscpack_1_1_0\oscpack_1_1_0\ip\win32\UdpSocket.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="oscpack_1_1_0\oscpack_1_1_0\osc\OscOutboundPacketStream.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="oscpack_1_1_0\oscpack_1_1_0\osc\OscPrintReceivedElements.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="oscpack_1_1_0\oscpack_1_1_0\osc\OscReceivedElements.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="oscpack_1_1_0\oscpack_1_1_0\osc\OscTypes.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -24,5 +41,23 @@
     <None Include="$(MSBuildThisFileDirectory)..\..\content\**\*.*" />
     <None Include="$(MSBuildThisFileDirectory)..\..\content\**\*.*" />
     <None Include="$(MSBuildThisFileDirectory)..\..\content\**\*.*" />
+    <None Include="$(MSBuildThisFileDirectory)..\..\content\**\*.*" />
+    <None Include="$(MSBuildThisFileDirectory)..\..\content\**\*.*" />
+    <None Include="$(MSBuildThisFileDirectory)..\..\content\**\*.*" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="oscpack_1_1_0\oscpack_1_1_0\ip\IpEndpointName.h" />
+    <ClInclude Include="oscpack_1_1_0\oscpack_1_1_0\ip\NetworkingUtils.h" />
+    <ClInclude Include="oscpack_1_1_0\oscpack_1_1_0\ip\PacketListener.h" />
+    <ClInclude Include="oscpack_1_1_0\oscpack_1_1_0\ip\TimerListener.h" />
+    <ClInclude Include="oscpack_1_1_0\oscpack_1_1_0\ip\UdpSocket.h" />
+    <ClInclude Include="oscpack_1_1_0\oscpack_1_1_0\osc\MessageMappingOscPacketListener.h" />
+    <ClInclude Include="oscpack_1_1_0\oscpack_1_1_0\osc\OscException.h" />
+    <ClInclude Include="oscpack_1_1_0\oscpack_1_1_0\osc\OscHostEndianness.h" />
+    <ClInclude Include="oscpack_1_1_0\oscpack_1_1_0\osc\OscOutboundPacketStream.h" />
+    <ClInclude Include="oscpack_1_1_0\oscpack_1_1_0\osc\OscPacketListener.h" />
+    <ClInclude Include="oscpack_1_1_0\oscpack_1_1_0\osc\OscPrintReceivedElements.h" />
+    <ClInclude Include="oscpack_1_1_0\oscpack_1_1_0\osc\OscReceivedElements.h" />
+    <ClInclude Include="oscpack_1_1_0\oscpack_1_1_0\osc\OscTypes.h" />
   </ItemGroup>
 </Project>

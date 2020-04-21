@@ -105,10 +105,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <DisableSpecificWarnings>4996</DisableSpecificWarnings>
+      <AdditionalIncludeDirectories>C:\Users\Danai\Desktop\Azure Kinect DK\1.1-AzureKinectDK%28Body_Tracking%29\oscpack_1_1_0\oscpack_1_1_0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>winmm.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -149,10 +152,32 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="1.1-AzureKinectDK(Body_Tracking).cpp" />
+    <ClCompile Include="oscpack_1_1_0\oscpack_1_1_0\ip\IpEndpointName.cpp" />
+    <ClCompile Include="oscpack_1_1_0\oscpack_1_1_0\ip\win32\NetworkingUtils.cpp" />
+    <ClCompile Include="oscpack_1_1_0\oscpack_1_1_0\ip\win32\UdpSocket.cpp" />
+    <ClCompile Include="oscpack_1_1_0\oscpack_1_1_0\osc\OscOutboundPacketStream.cpp" />
+    <ClCompile Include="oscpack_1_1_0\oscpack_1_1_0\osc\OscPrintReceivedElements.cpp" />
+    <ClCompile Include="oscpack_1_1_0\oscpack_1_1_0\osc\OscReceivedElements.cpp" />
+    <ClCompile Include="oscpack_1_1_0\oscpack_1_1_0\osc\OscTypes.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="dnn_model_2_0.onnx" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="oscpack_1_1_0\oscpack_1_1_0\ip\IpEndpointName.h" />
+    <ClInclude Include="oscpack_1_1_0\oscpack_1_1_0\ip\NetworkingUtils.h" />
+    <ClInclude Include="oscpack_1_1_0\oscpack_1_1_0\ip\PacketListener.h" />
+    <ClInclude Include="oscpack_1_1_0\oscpack_1_1_0\ip\TimerListener.h" />
+    <ClInclude Include="oscpack_1_1_0\oscpack_1_1_0\ip\UdpSocket.h" />
+    <ClInclude Include="oscpack_1_1_0\oscpack_1_1_0\osc\MessageMappingOscPacketListener.h" />
+    <ClInclude Include="oscpack_1_1_0\oscpack_1_1_0\osc\OscException.h" />
+    <ClInclude Include="oscpack_1_1_0\oscpack_1_1_0\osc\OscHostEndianness.h" />
+    <ClInclude Include="oscpack_1_1_0\oscpack_1_1_0\osc\OscOutboundPacketStream.h" />
+    <ClInclude Include="oscpack_1_1_0\oscpack_1_1_0\osc\OscPacketListener.h" />
+    <ClInclude Include="oscpack_1_1_0\oscpack_1_1_0\osc\OscPrintReceivedElements.h" />
+    <ClInclude Include="oscpack_1_1_0\oscpack_1_1_0\osc\OscReceivedElements.h" />
+    <ClInclude Include="oscpack_1_1_0\oscpack_1_1_0\osc\OscTypes.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
