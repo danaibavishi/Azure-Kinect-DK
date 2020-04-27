@@ -107,31 +107,33 @@ int main(int argc, char* argv[])
 
                 }
                 */
-                size_t i = 0;
-                k4abt_skeleton_t skeleton;
-                k4abt_frame_get_body_skeleton(body_frame, i, &skeleton);
-                uint32_t id = k4abt_frame_get_body_id(body_frame, i);
+                if (num_bodies > 0) {
+                    size_t i = 0;
+                    k4abt_skeleton_t skeleton;
+                    k4abt_frame_get_body_skeleton(body_frame, i, &skeleton);
+                    uint32_t id = k4abt_frame_get_body_id(body_frame, i);
 
-                float rwristx = skeleton.joints[K4ABT_JOINT_WRIST_RIGHT].position.xyz.x;
-                float rwristy = skeleton.joints[K4ABT_JOINT_WRIST_RIGHT].position.xyz.y;
+                    float rwristx = skeleton.joints[K4ABT_JOINT_WRIST_RIGHT].position.xyz.x;
+                    float rwristy = skeleton.joints[K4ABT_JOINT_WRIST_RIGHT].position.xyz.y;
 
-                float lwristx = skeleton.joints[K4ABT_JOINT_WRIST_LEFT].position.xyz.x;
-                float lwristy = skeleton.joints[K4ABT_JOINT_WRIST_LEFT].position.xyz.y;
+                    float lwristx = skeleton.joints[K4ABT_JOINT_WRIST_LEFT].position.xyz.x;
+                    float lwristy = skeleton.joints[K4ABT_JOINT_WRIST_LEFT].position.xyz.y;
 
-                printf("[%u]Right Wrist X Coordinate = %f\n", i, rwristx);
-                printf("[%u]Right Wrist Y Coordinate = %f\n", i, rwristy);
+                    printf("[%u]Right Wrist X Coordinate = %f\n", i, rwristx);
+                    printf("[%u]Right Wrist Y Coordinate = %f\n", i, rwristy);
 
-                printf("[%u]Left Wrist X Coordinate = %f\n", i, lwristx);
-                printf("[%u]Left Wrist Y Coordinate = %f\n", i, lwristy);
-                
-                p << osc::BeginBundleImmediate
-                    << osc::BeginMessage("/wek/inputs")
-                    << rwristx << rwristy << lwristx << lwristy << osc::EndMessage
-                    << osc::EndBundle;
+                    printf("[%u]Left Wrist X Coordinate = %f\n", i, lwristx);
+                    printf("[%u]Left Wrist Y Coordinate = %f\n", i, lwristy);
 
-                transmitSocket.Send(p.Data(), p.Size());
+                    p << osc::BeginBundleImmediate
+                        << osc::BeginMessage("/wek/inputs")
+                        << rwristx << rwristy << lwristx << lwristy << osc::EndMessage
+                        << osc::EndBundle;
 
-                k4abt_frame_release(body_frame); // Remember to release the body frame once you finish using it
+                    transmitSocket.Send(p.Data(), p.Size());
+
+                    k4abt_frame_release(body_frame); // Remember to release the body frame once you finish using it
+                }
             }
             else if (pop_frame_result == K4A_WAIT_RESULT_TIMEOUT)
             {
