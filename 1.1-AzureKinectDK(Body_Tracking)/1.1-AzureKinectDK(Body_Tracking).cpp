@@ -119,15 +119,40 @@ int main(int argc, char* argv[])
                     float lwristx = skeleton.joints[K4ABT_JOINT_WRIST_LEFT].position.xyz.x;
                     float lwristy = skeleton.joints[K4ABT_JOINT_WRIST_LEFT].position.xyz.y;
 
+                    float relbowx = skeleton.joints[K4ABT_JOINT_ELBOW_RIGHT].position.xyz.x;
+                    float relbowy = skeleton.joints[K4ABT_JOINT_ELBOW_RIGHT].position.xyz.y;
+
+                    float lelbowx = skeleton.joints[K4ABT_JOINT_ELBOW_LEFT].position.xyz.x;
+                    float lelbowy = skeleton.joints[K4ABT_JOINT_ELBOW_LEFT].position.xyz.y;
+
+                    float q0 = skeleton.joints[K4ABT_JOINT_SHOULDER_LEFT].orientation.wxyz.w;
+                    float q1 = skeleton.joints[K4ABT_JOINT_SHOULDER_LEFT].orientation.wxyz.x;
+                    float q2 = skeleton.joints[K4ABT_JOINT_SHOULDER_LEFT].orientation.wxyz.y;
+                    float q3 = skeleton.joints[K4ABT_JOINT_SHOULDER_LEFT].orientation.wxyz.z;
+
+                    float lpitch = asin(2.0 * (q2 * q0 - q3 * q1));
+
+                    float q0 = skeleton.joints[K4ABT_JOINT_SHOULDER_RIGHT].orientation.wxyz.w;
+                    float q1 = skeleton.joints[K4ABT_JOINT_SHOULDER_RIGHT].orientation.wxyz.x;
+                    float q2 = skeleton.joints[K4ABT_JOINT_SHOULDER_RIGHT].orientation.wxyz.y;
+                    float q3 = skeleton.joints[K4ABT_JOINT_SHOULDER_RIGHT].orientation.wxyz.z;
+
+                    float rpitch = asin(2.0 * (q2 * q0 - q3 * q1));
+                    
+                    /*
                     printf("[%u]Right Wrist X Coordinate = %f\n", i, rwristx);
                     printf("[%u]Right Wrist Y Coordinate = %f\n", i, rwristy);
 
                     printf("[%u]Left Wrist X Coordinate = %f\n", i, lwristx);
                     printf("[%u]Left Wrist Y Coordinate = %f\n", i, lwristy);
 
+                    printf("[%u]Left Shoulder Orientation = %f\n", i, lpitch);
+                    */
+                    printf("Coordinates Acquired\n");
+
                     p << osc::BeginBundleImmediate
                         << osc::BeginMessage("/wek/inputs")
-                        << rwristx << rwristy << lwristx << lwristy << osc::EndMessage
+                        << rwristx << rwristy << lwristx << lwristy << relbowx << relbowy << lelbowx << lelbowy << lpitch  << rpitch << osc::EndMessage
                         << osc::EndBundle;
 
                     transmitSocket.Send(p.Data(), p.Size());
