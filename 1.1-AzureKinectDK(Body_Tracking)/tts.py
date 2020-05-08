@@ -55,7 +55,7 @@ class TextToSpeech(object):
         includes the date.
         '''
         if response.status_code == 200:
-            with open(self.text + '.wav', 'wb') as audio:
+            with open('Sample' + '.wav', 'wb') as audio: 
                 audio.write(response.content)
                 print("\nStatus code: " + str(response.status_code) + "\nYour TTS is ready for playback.\n")
         else:

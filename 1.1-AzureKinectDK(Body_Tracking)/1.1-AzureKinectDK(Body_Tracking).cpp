@@ -132,12 +132,12 @@ int main(int argc, char* argv[])
 
                     float lpitch = asin(2.0 * (q2 * q0 - q3 * q1));
 
-                    float q0 = skeleton.joints[K4ABT_JOINT_SHOULDER_RIGHT].orientation.wxyz.w;
-                    float q1 = skeleton.joints[K4ABT_JOINT_SHOULDER_RIGHT].orientation.wxyz.x;
-                    float q2 = skeleton.joints[K4ABT_JOINT_SHOULDER_RIGHT].orientation.wxyz.y;
-                    float q3 = skeleton.joints[K4ABT_JOINT_SHOULDER_RIGHT].orientation.wxyz.z;
+                    float q4 = skeleton.joints[K4ABT_JOINT_SHOULDER_RIGHT].orientation.wxyz.w;
+                    float q5 = skeleton.joints[K4ABT_JOINT_SHOULDER_RIGHT].orientation.wxyz.x;
+                    float q6 = skeleton.joints[K4ABT_JOINT_SHOULDER_RIGHT].orientation.wxyz.y;
+                    float q7 = skeleton.joints[K4ABT_JOINT_SHOULDER_RIGHT].orientation.wxyz.z;
 
-                    float rpitch = asin(2.0 * (q2 * q0 - q3 * q1));
+                    float rpitch = asin(2.0 * (q6 * q7 - q3 * q5));
                     
                     /*
                     printf("[%u]Right Wrist X Coordinate = %f\n", i, rwristx);
