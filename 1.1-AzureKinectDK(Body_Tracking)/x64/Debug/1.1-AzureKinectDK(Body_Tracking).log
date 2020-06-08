@@ -1,6 +1,10 @@
 ﻿  1.1-AzureKinectDK(Body_Tracking).cpp
-C:\Users\Danai\Desktop\Azure Kinect DK\1.1-AzureKinectDK(Body_Tracking)\1.1-AzureKinectDK(Body_Tracking).cpp(113,75): warning C4267: 'argument': conversion from 'size_t' to 'uint32_t', possible loss of data
-C:\Users\Danai\Desktop\Azure Kinect DK\1.1-AzureKinectDK(Body_Tracking)\1.1-AzureKinectDK(Body_Tracking).cpp(114,72): warning C4267: 'argument': conversion from 'size_t' to 'uint32_t', possible loss of data
-C:\Users\Danai\Desktop\Azure Kinect DK\1.1-AzureKinectDK(Body_Tracking)\1.1-AzureKinectDK(Body_Tracking).cpp(133,34): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-C:\Users\Danai\Desktop\Azure Kinect DK\1.1-AzureKinectDK(Body_Tracking)\1.1-AzureKinectDK(Body_Tracking).cpp(140,34): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\Danai\Desktop\Azure Kinect DK\1.1-AzureKinectDK(Body_Tracking)\1.1-AzureKinectDK(Body_Tracking).cpp(114,75): warning C4267: 'argument': conversion from 'size_t' to 'uint32_t', possible loss of data
+C:\Users\Danai\Desktop\Azure Kinect DK\1.1-AzureKinectDK(Body_Tracking)\1.1-AzureKinectDK(Body_Tracking).cpp(115,72): warning C4267: 'argument': conversion from 'size_t' to 'uint32_t', possible loss of data
+C:\Users\Danai\Desktop\Azure Kinect DK\1.1-AzureKinectDK(Body_Tracking)\1.1-AzureKinectDK(Body_Tracking).cpp(134,34): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\Danai\Desktop\Azure Kinect DK\1.1-AzureKinectDK(Body_Tracking)\1.1-AzureKinectDK(Body_Tracking).cpp(141,34): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\Danai\Desktop\Azure Kinect DK\1.1-AzureKinectDK(Body_Tracking)\1.1-AzureKinectDK(Body_Tracking).cpp(159,79): warning C4267: 'argument': conversion from 'size_t' to 'uint32_t', possible loss of data
+C:\Users\Danai\Desktop\Azure Kinect DK\1.1-AzureKinectDK(Body_Tracking)\1.1-AzureKinectDK(Body_Tracking).cpp(160,76): warning C4267: 'argument': conversion from 'size_t' to 'uint32_t', possible loss of data
+C:\Users\Danai\Desktop\Azure Kinect DK\1.1-AzureKinectDK(Body_Tracking)\1.1-AzureKinectDK(Body_Tracking).cpp(186,38): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\Danai\Desktop\Azure Kinect DK\1.1-AzureKinectDK(Body_Tracking)\1.1-AzureKinectDK(Body_Tracking).cpp(194,38): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
   1.1-AzureKinectDK(Body_Tracking).vcxproj -> C:\Users\Danai\Desktop\Azure Kinect DK\1.1-AzureKinectDK(Body_Tracking)\x64\Debug\1.1-AzureKinectDK(Body_Tracking).exe

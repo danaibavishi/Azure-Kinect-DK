@@ -7,6 +7,7 @@
 #include <osc\OscOutboundPacketStream.h>
 #include <ip\UdpSocket.h>
 #include "windows.h"
+#include <vector>
 
 #define VERIFY(result, error)                                                                            \
     if(result != K4A_RESULT_SUCCEEDED)                                                                   \
@@ -105,9 +106,9 @@ int main(int argc, char* argv[])
                         << osc::EndBundle;
                     transmitSocket.Send(p.Data(), p.Size());
 
-                }
-                */
-                if (num_bodies > 0) {
+                }*/
+                
+                if (num_bodies == 1 ) {
                     size_t i = 0;
                     k4abt_skeleton_t skeleton;
                     k4abt_frame_get_body_skeleton(body_frame, i, &skeleton);
@@ -139,20 +140,65 @@ int main(int argc, char* argv[])
 
                     float rpitch = asin(2.0 * (q6 * q7 - q3 * q5));
                     
-                    /*
-                    printf("[%u]Right Wrist X Coordinate = %f\n", i, rwristx);
-                    printf("[%u]Right Wrist Y Coordinate = %f\n", i, rwristy);
-
-                    printf("[%u]Left Wrist X Coordinate = %f\n", i, lwristx);
-                    printf("[%u]Left Wrist Y Coordinate = %f\n", i, lwristy);
-
-                    printf("[%u]Left Shoulder Orientation = %f\n", i, lpitch);
-                    */
-                    printf("Coordinates Acquired\n");
+                    printf("1 Coordinates Acquired\n");
 
                     p << osc::BeginBundleImmediate
                         << osc::BeginMessage("/wek/inputs")
-                        << rwristx << rwristy << lwristx << lwristy << relbowx << relbowy << lelbowx << lelbowy << lpitch  << rpitch << osc::EndMessage
+                        << rwristx << rwristy << lwristx << lwristy << relbowx << relbowy << lelbowx << lelbowy << lpitch  << rpitch << 0 << 0 << 0 << 0 << 0 << 0 << 0 << 0 << osc::EndMessage
+                        << osc::EndBundle;
+
+                    transmitSocket.Send(p.Data(), p.Size());
+
+                    k4abt_frame_release(body_frame); // Remember to release the body frame once you finish using it
+                }
+                else if (num_bodies == 2) {
+                    std::vector<float> bodyjoints;
+                    for (size_t i = 0; i < num_bodies; i++)
+                    {
+                        k4abt_skeleton_t skeleton;
+                        k4abt_frame_get_body_skeleton(body_frame, i, &skeleton);
+                        uint32_t id = k4abt_frame_get_body_id(body_frame, i);
+
+                        float rwristx = skeleton.joints[K4ABT_JOINT_WRIST_RIGHT].position.xyz.x;
+                        bodyjoints.push_back(rwristx);
+                        float rwristy = skeleton.joints[K4ABT_JOINT_WRIST_RIGHT].position.xyz.y;
+                        bodyjoints.push_back(rwristy);
+                        float lwristx = skeleton.joints[K4ABT_JOINT_WRIST_LEFT].position.xyz.x;
+                        bodyjoints.push_back(lwristx);
+                        float lwristy = skeleton.joints[K4ABT_JOINT_WRIST_LEFT].position.xyz.y;
+                        bodyjoints.push_back(lwristy);
+
+                        float relbowx = skeleton.joints[K4ABT_JOINT_ELBOW_RIGHT].position.xyz.x;
+                        bodyjoints.push_back(relbowx);
+                        float relbowy = skeleton.joints[K4ABT_JOINT_ELBOW_RIGHT].position.xyz.y;
+                        bodyjoints.push_back(relbowy);
+
+                        float lelbowx = skeleton.joints[K4ABT_JOINT_ELBOW_LEFT].position.xyz.x;
+                        bodyjoints.push_back(lelbowx);
+                        float lelbowy = skeleton.joints[K4ABT_JOINT_ELBOW_LEFT].position.xyz.y;
+                        bodyjoints.push_back(lelbowy);
+
+                        float q0 = skeleton.joints[K4ABT_JOINT_SHOULDER_LEFT].orientation.wxyz.w;
+                        float q1 = skeleton.joints[K4ABT_JOINT_SHOULDER_LEFT].orientation.wxyz.x;
+                        float q2 = skeleton.joints[K4ABT_JOINT_SHOULDER_LEFT].orientation.wxyz.y;
+                        float q3 = skeleton.joints[K4ABT_JOINT_SHOULDER_LEFT].orientation.wxyz.z;
+
+                        float lpitch = asin(2.0 * (q2 * q0 - q3 * q1));
+                        bodyjoints.push_back(lpitch);
+
+                        float q4 = skeleton.joints[K4ABT_JOINT_SHOULDER_RIGHT].orientation.wxyz.w;
+                        float q5 = skeleton.joints[K4ABT_JOINT_SHOULDER_RIGHT].orientation.wxyz.x;
+                        float q6 = skeleton.joints[K4ABT_JOINT_SHOULDER_RIGHT].orientation.wxyz.y;
+                        float q7 = skeleton.joints[K4ABT_JOINT_SHOULDER_RIGHT].orientation.wxyz.z;
+
+                        float rpitch = asin(2.0 * (q6 * q7 - q3 * q5));
+                        bodyjoints.push_back(rpitch);
+                    }
+                    printf("2 Coordinates Acquired\n");
+
+                    p << osc::BeginBundleImmediate
+                        << osc::BeginMessage("/wek/inputs")
+                        << bodyjoints[0] << bodyjoints[1] << bodyjoints[2] << bodyjoints[3] << bodyjoints[4] << bodyjoints[5] << bodyjoints[6] << bodyjoints[7] << bodyjoints[8] << bodyjoints[9] << bodyjoints[10] << bodyjoints[11] << bodyjoints[12] << bodyjoints[13] << bodyjoints[14] << bodyjoints[15] << bodyjoints[16] << bodyjoints[17] << osc::EndMessage
                         << osc::EndBundle;
 
                     transmitSocket.Send(p.Data(), p.Size());
