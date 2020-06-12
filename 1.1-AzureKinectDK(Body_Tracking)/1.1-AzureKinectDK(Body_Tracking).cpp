@@ -198,7 +198,7 @@ int main(int argc, char* argv[])
 
                     p << osc::BeginBundleImmediate
                         << osc::BeginMessage("/wek/inputs")
-                        << bodyjoints[0] << bodyjoints[1] << bodyjoints[2] << bodyjoints[3] << bodyjoints[4] << bodyjoints[5] << bodyjoints[6] << bodyjoints[7] << bodyjoints[8] << bodyjoints[9] << bodyjoints[10] << bodyjoints[11] << bodyjoints[12] << bodyjoints[13] << bodyjoints[14] << bodyjoints[15] << bodyjoints[16] << bodyjoints[17] << osc::EndMessage
+                        << bodyjoints[0] << bodyjoints[1] << bodyjoints[2] << bodyjoints[3] << bodyjoints[4] << bodyjoints[5] << bodyjoints[6] << bodyjoints[7] << bodyjoints[8] << bodyjoints[9] << bodyjoints[10] << bodyjoints[11] << bodyjoints[12] << bodyjoints[13] << bodyjoints[14] << bodyjoints[15] << bodyjoints[16] << bodyjoints[17] << bodyjoints[18] << bodyjoints[19] << osc::EndMessage
                         << osc::EndBundle;
 
                     transmitSocket.Send(p.Data(), p.Size());
